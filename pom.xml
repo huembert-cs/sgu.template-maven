@@ -17,7 +17,6 @@
 		<maven.compiler.release>11</maven.compiler.release>
 		<project.scm.id>git</project.scm.id>
 		<log4j.version>2.9.1</log4j.version>
-		<slf4j.version>1.7.25</slf4j.version>
 	</properties>
 
 	<dependencies>
