@@ -16,7 +16,7 @@
 		<file.encoding>UTF-8</file.encoding>
 		<maven.compiler.release>11</maven.compiler.release>
 		<project.scm.id>git</project.scm.id>
-		<log4j.version>2.9.1</log4j.version>
+		<log4j.version>2.13.3</log4j.version>
 	</properties>
 
 	<dependencies>
