@@ -17,6 +17,7 @@
 		<maven.compiler.release>11</maven.compiler.release>
 		<project.scm.id>git</project.scm.id>
 		<log4j.version>2.13.3</log4j.version>
+		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 	</properties>
 
 	<dependencies>
@@ -35,21 +36,24 @@
 
 		<!-- testing -->
 		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<version>1.7.0</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- needed to enable Eclipse test runner -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.7.0</version>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- @SelectClasses, @RunWith(JUnitPlatform.class) -->
 		<dependency>
-			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId>
-			<version>5.7.0</version>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version>1.5.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -58,6 +62,7 @@
 			<version>4.2</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
