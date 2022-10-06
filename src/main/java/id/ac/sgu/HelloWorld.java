@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,12 +31,13 @@ public class HelloWorld extends Application {
 
 		LOG.info("starting application");
 
-		Parent root = FXMLLoader.load(getClass().getResource("DashBoard.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("App.fxml"));
 
 		primaryStage.setTitle("HomeControlApp");
 		primaryStage.setScene(new Scene(root));
 
 		primaryStage.getScene().getStylesheets().add("AppStyle.css");
+		primaryStage.setOnCloseRequest(e -> Platform.exit());
 
 		primaryStage.show();
 
