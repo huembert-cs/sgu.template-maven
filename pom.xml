@@ -25,14 +25,41 @@
 
 		<!-- logging -->
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>${log4j.version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.36</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
+			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>${log4j.version}</version>
+		</dependency>
+
+		<!-- javafx -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>11.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>11.0.2</version>
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<!-- data mapping -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- testing -->
@@ -60,9 +87,16 @@
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
-			<version>4.2</version>
+			<version>4.3</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 
@@ -90,7 +124,26 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.10.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.8</version>
+				<configuration>
+					<mainClass>de.commsult.sgu.homecontrol.HomeControlApp</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<id>debug</id>
+						<configuration>
+							<options>
+								<option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:8001</option>
+							</options>
+							<!-- <mainClass>de.commsult.sgu.homecontrol.HomeControlApp</mainClass> -->
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 
