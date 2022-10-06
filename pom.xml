@@ -140,7 +140,7 @@
 							<options>
 								<option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:8001</option>
 							</options>
-							<!-- <mainClass>de.commsult.sgu.homecontrol.HomeControlApp</mainClass> -->
+							<mainClass>de.commsult.sgu.homecontrol.HomeControlApp</mainClass>
 						</configuration>
 					</execution>
 				</executions>
