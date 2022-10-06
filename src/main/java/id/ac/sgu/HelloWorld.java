@@ -1,20 +1,50 @@
 package id.ac.sgu;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class HelloWorld {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-	private static final Logger LOG = LogManager.getLogger(HelloWorld.class);
+public class HelloWorld extends Application {
+
+	private static final Logger LOG = LoggerFactory.getLogger(HelloWorld.class);
 
 	public static void main(String[] args) {
 
-		// System.out.println("Hello World");
-		
 		LOG.trace("TRACE");
 		LOG.debug("DEBUG");
 		LOG.info("INFO");
 		LOG.warn("WARN");
 		LOG.error("ERROR");
+
+		launch();
+
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+
+		LOG.info("starting application");
+
+		Parent root = FXMLLoader.load(getClass().getResource("DashBoard.fxml"));
+
+		primaryStage.setTitle("HomeControlApp");
+		primaryStage.setScene(new Scene(root));
+
+		primaryStage.getScene().getStylesheets().add("AppStyle.css");
+
+		primaryStage.show();
+
+	}
+
+	@Override
+	public void stop() throws Exception {
+
+		LOG.info("stopping application");
+
 	}
 }
