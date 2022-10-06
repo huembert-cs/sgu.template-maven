@@ -1,14 +1,23 @@
 package id.ac.sgu.fx;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class AppController implements Initializable {
+
+	private static final Logger LOG = LoggerFactory.getLogger(AppController.class);
+
+	private Random random = new Random();
 
 	@FXML
 	private Text demoText;
@@ -22,6 +31,15 @@ public class AppController implements Initializable {
 		demoText.setText("Application init");
 
 		demoBtn.setText("Update");
+
+	}
+
+	@FXML
+	void onOkButtonMouseClick(MouseEvent event) {
+
+		LOG.info("onOkButtonMouseClick");
+
+		demoText.setText(Integer.toString(random.nextInt(100)));
 
 	}
 
