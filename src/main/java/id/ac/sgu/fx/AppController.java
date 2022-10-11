@@ -37,9 +37,11 @@ public class AppController implements Initializable {
 	@FXML
 	void onOkButtonMouseClick(MouseEvent event) {
 
-		LOG.info("onOkButtonMouseClick");
+		String randomNumber = Integer.toString(random.nextInt(100));
 
-		demoText.setText(Integer.toString(random.nextInt(100)));
+		LOG.info("onOkButtonMouseClick with new random value {}", randomNumber);
+
+		demoText.setText(randomNumber);
 
 	}
 
